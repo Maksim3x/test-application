@@ -1,0 +1,3 @@
+services:
+    finance_service:
+        class: Subbotin\MainBundle\Service\FinanceService

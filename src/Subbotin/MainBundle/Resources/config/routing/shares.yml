@@ -1,0 +1,24 @@
+shares_index:
+    path:     /
+    defaults: { _controller: "SubbotinMainBundle:Shares:index" }
+    methods:  GET
+
+shares_show:
+    path:     /{id}/show
+    defaults: { _controller: "SubbotinMainBundle:Shares:show" }
+    methods:  GET
+
+shares_new:
+    path:     /new
+    defaults: { _controller: "SubbotinMainBundle:Shares:new" }
+    methods:  [GET, POST]
+
+shares_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SubbotinMainBundle:Shares:edit" }
+    methods:  [GET, POST]
+
+shares_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SubbotinMainBundle:Shares:delete" }
+    methods:  POST

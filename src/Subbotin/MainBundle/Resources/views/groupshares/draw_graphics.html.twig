@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>График акций</h1>
+
+    {% for i in 0..data|length-1 %}
+        <div class="label-graph">График({{ data[i].chart.result[0].meta.symbol }}):</div>
+        <div id="chart{{ i }}" style="width:100%; height:100%"></div>
+    {% endfor %}
+
+{% endblock %}
+
+{% block stylesheets %}
+    <link class="include" rel="stylesheet" type="text/css" href="{{ asset('graph/jquery.jqplot.min.css') }}" />
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            var plots = [];
+
+            {% for i in 0..data|length-1 %}
+                var s{{ i }} = [
+                    {% for j in 0..data[i].chart.result[0].timestamp|length-1 %}
+                        {% if j > 0 %},{% endif %}
+                        [ {{ data[i].chart.result[0].timestamp[j] }} , {{ data[i].chart.result[0].indicators.quote[0].close[j] }} ]
+                    {% endfor %}
+                ];
+            {% endfor %}
+
+            {% for i in 0..data|length-1 %}
+                createGraphics(s{{ i }}, "chart{{ i }}");
+            {% endfor %}
+
+            function createGraphics(data, idChart) {
+                plot = $.jqplot(idChart, [data]);
+                plots.push(plot);
+            }
+        });
+
+
+    </script>
+    <script class="include" type="text/javascript" src="{{ asset('graph/jquery.jqplot.min.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Редактирование акции</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_label(edit_form.title) }}<br />
+        {{ form_widget(edit_form.title) }}<br />
+        {{ form_label(edit_form.code) }}<br />
+        {{ form_widget(edit_form.code) }}<br /><br />
+        <input type="submit" value="Редактировать" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('shares_index') }}">Вернуться к списку акций</a>
+        </li>
+    </ul>
+{% endblock %}

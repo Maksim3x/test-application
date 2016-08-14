@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Список акций</h1>
+
+    <ul>
+        <li>
+            <a class="btnCreate border-radius-5" href="{{ path('shares_new') }}">Создать новую акцию</a>
+        </li>
+    </ul>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Название акции</th>
+                <th>Код акции</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for share in shares %}
+            <tr>
+                <td><a href="{{ path('shares_edit', { 'id': share.id }) }}">{{ share.id }}</a></td>
+                <td>{{ share.title }}</td>
+                <td>{{ share.code }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="#" class="delete-shared" data-id="{{ url('shares_delete', {'id' : share.id}) }}">удалить</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    $(document).ready(function(){
+        $('.delete-shared').click(function () {
+            $.post($(this).attr('data-id'), {}, function (resp) {
+                if(resp == "SUCCESS")
+                    location.reload();
+                else
+                    alert(resp);
+            });
+
+            return false;
+        });
+    });
+</script>
+{% endblock %}

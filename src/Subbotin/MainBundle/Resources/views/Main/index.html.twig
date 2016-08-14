@@ -1,0 +1,10 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    {% if not app.user %}
+        <h3>Что бы начать пользоваться сервисом, пожалуйста, <a href="{{ url('fos_user_registration_register') }}">зарегистрируйтесь</a> и пройдите
+            <a href="{{ url('fos_user_security_login') }}">авторизацию</a> на сайте!</h3>
+    {% else %}
+        {% include('@SubbotinMain/Main/grud_list.html.twig') %}
+    {% endif %}
+{% endblock %}

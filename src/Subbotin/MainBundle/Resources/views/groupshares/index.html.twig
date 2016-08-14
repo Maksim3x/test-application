@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Список групп акций</h1>
+
+    <ul>
+        <li>
+            <a class="btnCreate border-radius-5" href="{{ path('groupshares_new') }}">Создать новую группу акций</a>
+        </li>
+    </ul>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Заголовок группы</th>
+                <th>Графики</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for groupShare in groupShares %}
+            <tr>
+                <td><a href="{{ path('groupshares_edit', { 'id': groupShare.id }) }}">{{ groupShare.id }}</a></td>
+                <td>{{ groupShare.title }}</td>
+                <td><a class="btnView" href="{{ url('groupshares_draw_graphic', {'groupId' : groupShare.id}) }}" >перейти на график</a></td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="#" class="delete-shared" data-id="{{ url('groupshares_delete', {'id' : groupShare.id}) }}">удалить</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function(){
+            $('.delete-shared').click(function () {
+                $.post($(this).attr('data-id'), {}, function (resp) {
+                    if(resp == "SUCCESS")
+                        location.reload();
+                    else
+                        alert(resp);
+                });
+
+                return false;
+            });
+        });
+    </script>
+{% endblock %}

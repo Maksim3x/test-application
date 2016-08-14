@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Создание акции</h1>
+
+    {{ form_start(form) }}
+        {{ form_label(form.title) }}<br />
+        {{ form_widget(form.title) }}<br />
+        {{ form_label(form.code) }}<br />
+        {{ form_widget(form.code) }}<br /><br />
+        <input type="submit" value="Создать" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a class="btnPrev border-radius-5" href="{{ path('shares_index') }}">Вернуться к списку акций</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Редактирование группы акций</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_label(edit_form.title) }}<br />
+        {{ form_widget(edit_form.title) }}<br />
+        {{ form_label(edit_form.shares) }}<br />
+        {{ form_widget(edit_form.shares) }}<br /><br />
+        <input type="submit" value="Редактировать" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('groupshares_index') }}">Вернуться к списку групп</a>
+        </li>
+    </ul>
+{% endblock %}

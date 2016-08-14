@@ -1,0 +1,85 @@
+html,body{ width: 100%; height: 100%; }
+body{
+    background: #f1f1f1;
+    color: #333;
+    font: 14px/18px sans-serif, arial;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a{ color: royalblue; }
+a:hover{ text-decoration: none; }
+
+.shadow-box{
+    -webkit-box-shadow: 0px 2px 2px rgba(0,0,0, .2);
+    -moz-box-shadow: 0px 2px 2px rgba(0,0,0, .2);
+    box-shadow: 0px 2px 2px rgba(0,0,0, .2);
+}
+
+.border-radius-5{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.info{ background: #f1f1f1; padding: 10px; font-size: 0.8em; width: 100%; }
+
+form input{
+    width: 100%;
+    max-width: 250px;
+    background: #fff;
+    padding: 3px 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+form input:focus{ border: 1px dashed #2b669a; }
+form input[type="submit"]:hover{
+    background: #2b669a;
+    color: white;
+    border-color: #2b669a;
+}
+
+.btnPrev{ background: #f1f1f1; color: #333; padding: 3px 5px; width: 100%; max-width: 250px; margin-top: 10px; display: block; text-align: center; }
+.btnCreate{ background: mediumseagreen; color: white; padding: 5px 10px; display: inline-block; margin: 20px 0; }
+.btnCreate:hover{ background: forestgreen; color: white; }
+.btnView{ background: darkorange; color: white; padding: 5px 10px; display: inline-block; }
+.btnView:hover{ background: orangered; color: white !important; }
+
+table{ width: 100%; text-align: center; }
+th{ background: #333333; color: white; }
+td{ padding: 5px 3px; }
+tr:nth-child(2n){ background: #f1f1f1; color: #333; }
+tr:nth-child(2n+1){ background: #f5f5f5; color: #333; }
+tr:hover > td{ background: #333; color: #fff; }
+tr:hover > td a{ color: #fff; }
+tr:hover > td a:hover{ color: royalblue; }
+
+ul li{ list-style: none; }
+
+#menu{ background: #333; }
+#menu ul{ margin: 0; padding: 0; }
+#menu ul li{ float: left; margin-left: 2px; }
+#menu ul li:first-child{ margin-left: 0; }
+#menu ul li a{ padding: 10px 15px; background: #444; color: whitesmoke; display: block; }
+#menu ul li a:hover{ background: #555; }
+
+#content .container{ background: #fff; }
+#content .container .row{ padding: 15px; }
+
+.list-url-account li{ margin-bottom: 10px; width: 100%; max-width: 250px; display: block; }
+.list-url-account li a{ background: royalblue; color: white; padding: 5px 10px; display: block; text-align: center; }
+.list-url-account li a:hover{ background: dodgerblue; }
+
+.label-graph{ width: 100%; margin-top: 30px; background: #eee; padding: 3px 5px; }

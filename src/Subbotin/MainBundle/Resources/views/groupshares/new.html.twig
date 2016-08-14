@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>GroupShares creation</h1>
+
+    {{ form_start(form) }}
+    {{ form_label(form.title) }}<br />
+    {{ form_widget(form.title) }}<br />
+    {{ form_label(form.shares) }}<br />
+    {{ form_widget(form.shares) }}<br /><br />
+        <input type="submit" value="Создать" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a class="btnPrev border-radius-5" href="{{ path('groupshares_index') }}">Вернуться к списку групп</a>
+        </li>
+    </ul>
+{% endblock %}

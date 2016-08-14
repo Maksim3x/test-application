@@ -1,0 +1,11 @@
+subbotin_main_shares:
+    resource: "@SubbotinMainBundle/Resources/config/routing/shares.yml"
+    prefix:   /shares
+
+subbotin_main_groupshares:
+    resource: "@SubbotinMainBundle/Resources/config/routing/groupshares.yml"
+    prefix:   /group-shares
+
+subbotin_main_startpage:
+    path:     /
+    defaults: { _controller: SubbotinMainBundle:Main:index }

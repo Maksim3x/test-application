@@ -1,0 +1,30 @@
+groupshares_index:
+    path:     /
+    defaults: { _controller: "SubbotinMainBundle:GroupShares:index" }
+    methods:  GET
+
+groupshares_show:
+    path:     /{id}/show
+    defaults: { _controller: "SubbotinMainBundle:GroupShares:show" }
+    methods:  GET
+
+groupshares_new:
+    path:     /new
+    defaults: { _controller: "SubbotinMainBundle:GroupShares:new" }
+    methods:  [GET, POST]
+
+groupshares_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SubbotinMainBundle:GroupShares:edit" }
+    methods:  [GET, POST]
+
+groupshares_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SubbotinMainBundle:GroupShares:delete" }
+    methods:  POST
+
+groupshares_draw_graphic:
+    path:     /draw-graphics/{groupId}
+    defaults: { _controller: "SubbotinMainBundle:GroupShares:drawGraphic" }
+    methods:  GET
+
